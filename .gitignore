@@ -1,0 +1,53 @@
+# Diretórios e arquivos gerados pelo Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+**/mvnw
+**/mvnw.cmd
+.mvn/
+
+# Arquivos de logs
+*.log
+
+# Arquivos de configuração específicos da IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.classpath
+*.project
+.settings/
+
+# Arquivos gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Arquivos de build
+*.class
+*.war
+*.jar
+*.ear
+
+# Arquivos de cobertura de teste
+*.exec
+*.ec
+*.coverage
+*.clover
+coverage-reports/
+
+# Arquivos temporários e cache
+*.tmp
+*.swp
+*.swo
+*.bak
+
+# Arquivos de log de depuração
+hs_err_pid*.log
+
+# Arquivos do sistema operacional
+*.swp
+*.swo
+*~
