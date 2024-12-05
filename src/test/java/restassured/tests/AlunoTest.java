@@ -12,7 +12,7 @@ import restassured.core.BaseTest;
 import restassured.endpoints.AlunoEndpoints;
 import restassured.models.Aluno;
 
-public class AlunoTests extends BaseTest {
+public class AlunoTest extends BaseTest {
 
     @Test
     public void testCadastrarAluno() {
