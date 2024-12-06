@@ -7,20 +7,22 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <dependencies>
-        <!-- RestAssured -->
+        <!-- RestAssured: Biblioteca para testes de API REST -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <version>5.5.0</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Jackson Databind: Para serialização e desserialização de JSON -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>2.15.2</version>
         </dependency>
 
-        <!-- JUnit 5 -->
+        <!-- JUnit 5: Framework para testes unitários -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -28,14 +30,14 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- ExtentReports -->
+        <!-- ExtentReports: Biblioteca para geração de relatórios de teste -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>5.0.9</version>
         </dependency>
 
-        <!-- Lombok -->
+        <!-- Lombok: Reduz o boilerplate no código (getters, setters, etc.) -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -46,15 +48,16 @@
 
     <build>
         <plugins>
-            <!-- Maven Compiler Plugin -->
+            <!-- Maven Compiler Plugin: Configuração do compilador Java -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>21</source> <!-- Java 21 -->
+                    <source>21</source> <!-- Define o uso do Java 21 -->
                     <target>21</target>
                     <annotationProcessorPaths>
+                        <!-- Configuração do processador de anotações para Lombok -->
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
@@ -64,28 +67,31 @@
                 </configuration>
             </plugin>
 
-            <!-- Maven Surefire Plugin -->
+            <!-- Maven Surefire Plugin: Executa os testes durante o build -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M8</version>
                 <configuration>
+                    <!-- Especifica quais arquivos serão reconhecidos como testes -->
                     <includes>
                         <include>**/*Test.java</include>
                         <include>**/Test*.java</include>
                     </includes>
+                    <!-- Configuração de execução paralela para melhorar a performance -->
                     <parallel>methods</parallel>
                     <threadCount>4</threadCount>
                 </configuration>
             </plugin>
 
-            <!-- JaCoCo Plugin -->
+            <!-- JaCoCo Plugin: Gera relatórios de cobertura de código -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.10</version>
                 <executions>
                     <execution>
+                        <!-- Ativa o agente de instrumentação de código -->
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
@@ -93,6 +99,7 @@
                     <execution>
                         <id>report</id>
                         <phase>test</phase>
+                        <!-- Gera o relatório de cobertura após os testes -->
                         <goals>
                             <goal>report</goal>
                         </goals>
@@ -100,14 +107,14 @@
                 </executions>
             </plugin>
 
-            <!-- Maven Clean Plugin -->
+            <!-- Maven Clean Plugin: Limpa diretórios de build antes de um novo build -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
                 <version>3.1.0</version>
             </plugin>
 
-            <!-- Maven Shade Plugin -->
+            <!-- Maven Shade Plugin: Cria um JAR "fat" com todas as dependências -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
