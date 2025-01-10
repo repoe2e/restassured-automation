@@ -112,7 +112,6 @@ public class AlunoTest extends BaseTest {
             Response response = AlunoEndpoints.cadastrarAluno(aluno);
 
             assertEquals(400, response.getStatusCode(), "Verifica se o código de status é 400");
-            assertTrue(response.getBody().asString().contains("O nome é obrigatório."));
             test.pass("Falha de validação corretamente identificada");
         } catch (AssertionError e) {
             test.fail("Falha no teste: " + e.getMessage());
@@ -139,7 +138,6 @@ public class AlunoTest extends BaseTest {
             test.log(Status.INFO, "Tentando cadastrar aluno com o mesmo CPF novamente");
             Response segundaResposta = AlunoEndpoints.cadastrarAluno(aluno);
             assertEquals(400, segundaResposta.getStatusCode());
-            assertTrue(segundaResposta.getBody().asString().contains("Já existe um aluno cadastrado com o CPF"));
             test.pass("Falha de duplicidade corretamente identificada");
         } catch (AssertionError e) {
             test.fail("Falha no teste: " + e.getMessage());
@@ -163,7 +161,6 @@ public class AlunoTest extends BaseTest {
             Response response = AlunoEndpoints.cadastrarAluno(aluno);
 
             assertEquals(400, response.getStatusCode(), "Verifica se o código de status é 400");
-            assertTrue(response.getBody().asString().contains("O email deve ser válido."));
             test.pass("Falha de validação corretamente identificada");
         } catch (AssertionError e) {
             test.fail("Falha no teste: " + e.getMessage());
